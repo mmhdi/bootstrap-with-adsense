@@ -1,6 +1,6 @@
 languageCode:           "en"
 title:                  "Bootstrap"
-baseURL:                "https://getbootstrap.com"
+baseURL:                "https://gbt.pages.dev"
 
 security:
   enableInlineShortcodes: true
