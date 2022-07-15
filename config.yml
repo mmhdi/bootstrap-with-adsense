@@ -88,3 +88,34 @@ params:
   anchors:
     min: 2
     max: 5
+
+minify:
+  disableCSS: true
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: true
+  tdewolff:
+    css:
+      keepCSS2: true
+      precision: 0
+    html:
+      keepComments: false
+      keepConditionalComments: true
+      keepDefaultAttrVals: false
+      keepDocumentTags: true
+      keepEndTags: true
+      keepQuotes: false
+      keepWhitespace: false
+    js:
+      keepVarNames: false
+      precision: 0
+    json:
+      keepNumbers: false
+      precision: 0
+    svg:
+      precision: 0
+    xml:
+      keepWhitespace: false
