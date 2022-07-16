@@ -6,7 +6,7 @@
         <span class="d-none fs-6 pe-1">Browse</span>
       </button>
     {{- else }}
-      <div class="d-lg-none" style="width: 2.25rem;"></div>
+      <div class="d-lg-none" style="width:2.25rem"></div>
     {{- end }}
 
     <a class="navbar-brand p-0 me-0 me-lg-2" href="/" aria-label="Bootstrap">
@@ -83,7 +83,7 @@
           {{ partial "docs-versions" . }}
           {{ if eq .Page.Layout "docs" -}}
           {{- else }}
-          <li class="nav-item dropdown col-6 col-lg-auto">
+          <li class="nav-item col-6 col-lg-auto">
             <div id="google_translate_element"></div>
           </li>
           {{- end }}
