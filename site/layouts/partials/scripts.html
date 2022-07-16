@@ -20,8 +20,8 @@
 
 <script async src="{{ $docsJs.Permalink | relURL }}"></script>
 
-<script>
 {{ if eq .Page.Layout "docs" -}}
+<script>
   // Open in StackBlitz logic
   document.querySelectorAll('.btn-edit').forEach(btn => {
     btn.addEventListener('click', event => {
@@ -68,7 +68,9 @@ ${htmlSnippet.replace(/^/gm, '    ')}
 
     StackBlitzSDK.openProject(project, { openFile: 'index.html' })
   }
+</script>
 {{- end }}
+<script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
