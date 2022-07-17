@@ -19,6 +19,8 @@
 <link rel="preconnect" data-href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin>
 <link rel="dns-prefetch" data-href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin>
 {{- end }}
+<link rel="preload" as="font" href="/docs/{{ .Site.Params.docs_version }}/dist/css/bootstrap.min.css" crossorigin>
+<link rel="preload" as="font" href="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" crossorigin>
 
 {{ with .Params.robots -}}
 <meta name="robots" content="{{ . }}">
@@ -28,4 +30,4 @@
 {{ partial "favicons" . }}
 {{ partial "social" . }}
 {{ partial "analytics" . }}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2654354514493486" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2654354514493486" crossorigin></script>
