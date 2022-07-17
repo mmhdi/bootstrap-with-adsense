@@ -5,8 +5,8 @@
 {{- end }}
 
 {{ if eq .Page.Layout "docs" -}}
-<script async src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script async src="https://cdn.jsdelivr.net/npm/@stackblitz/sdk@1/bundles/sdk.umd.js"></script>
+<script async src="/docs/5.2/dist/js/docsearch.min.js"></script>
+<script async src="/docs/5.2/dist/js/stackblitz.sdk.umd.js"></script>
 {{- end }}
 
 {{- $vendor := resources.Match "js/vendor/*.js" -}}
@@ -75,4 +75,4 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>
-<script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script async src="translate.js?cb=googleTranslateElementInit"></script>
