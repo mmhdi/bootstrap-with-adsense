@@ -101,6 +101,9 @@ function loadScripts() {
   document.querySelectorAll("script[data-src]").forEach(function(elem) {
     elem.src = elem.getAttribute("data-src");
   });
+    document.querySelectorAll("link[data-href]").forEach(function(elem) {
+    elem.href = elem.getAttribute("data-href");
+  });
 }
 </script>
 <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
