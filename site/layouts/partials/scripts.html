@@ -1,12 +1,12 @@
 {{ if eq hugo.Environment "production" -}}
-  <script async src="/docs/{{ .Site.Params.docs_version }}/dist/js/bootstrap.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }} crossorigin="anonymous"></script>
+  <script async data-src="/docs/{{ .Site.Params.docs_version }}/dist/js/bootstrap.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }} crossorigin="anonymous"></script>
 {{ else -}}
-  <script async src="/docs/{{ .Site.Params.docs_version }}/dist/js/bootstrap.bundle.js"></script>
+  <script async data-src="/docs/{{ .Site.Params.docs_version }}/dist/js/bootstrap.bundle.js"></script>
 {{- end }}
 
 {{ if eq .Page.Layout "docs" -}}
-<script async src="/docs/5.2/dist/js/docsearch.min.js"></script>
-<script async src="/docs/5.2/dist/js/stackblitz.sdk.umd.js"></script>
+<script async data-src="/docs/5.2/dist/js/docsearch.min.js"></script>
+<script async data-src="/docs/5.2/dist/js/stackblitz.sdk.umd.js"></script>
 {{- end }}
 
 {{- $vendor := resources.Match "js/vendor/*.js" -}}
@@ -18,7 +18,7 @@
   {{- $docsJs = $docsJs | resources.Minify -}}
 {{- end }}
 
-<script async src="{{ $docsJs.Permalink | relURL }}"></script>
+<script async data-src="{{ $docsJs.Permalink | relURL }}"></script>
 
 {{ if eq .Page.Layout "docs" -}}
 <script>
@@ -73,6 +73,34 @@ ${htmlSnippet.replace(/^/gm, '    ')}
 <script>
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+};
+const loadScriptsTimer = setTimeout(loadScripts, 2000);
+const userInteractionEvents = [
+  "mouseover",
+  "keydown",
+  "touchmove",
+  "touchstart",
+  "mousedown",
+  "mousemove",
+  "touchend",
+  "wheel"
+];
+userInteractionEvents.forEach(function(event) {
+  window.addEventListener(event, triggerScriptLoader, { passive: true });
+});
+
+function triggerScriptLoader() {
+  loadScripts();
+  clearTimeout(loadScriptsTimer);
+  userInteractionEvents.forEach(function(event) {
+    window.removeEventListener(event, triggerScriptLoader, { passive: true });
+  });
+}
+
+function loadScripts() {
+  document.querySelectorAll("script[data-src]").forEach(function(elem) {
+    elem.src = elem.getAttribute("data-src");
+  });
 }
 </script>
-<script async src="/docs/5.2/dist/js/translate.js?cb=googleTranslateElementInit"></script>
+<script async data-src="/docs/5.2/dist/js/translate.js?cb=googleTranslateElementInit"></script>
