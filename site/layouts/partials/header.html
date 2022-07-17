@@ -11,12 +11,14 @@
 
 <link rel="canonical" href="{{ .Permalink }}">
 
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://translate.google.com" crossorigin>
+<link rel="dns-prefetch" href="https://translate.google.com" crossorigin>
 {{- if eq .Page.Layout "docs" -}}
 <link rel="preconnect" href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin>
 <link rel="dns-prefetch" href="https://AK7KMZKZHQ-dsn.algolia.net" crossorigin>
 {{- end }}
-<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" crossorigin>
 
 {{ with .Params.robots -}}
 <meta name="robots" content="{{ . }}">
